@@ -14,6 +14,7 @@ function App() {
   return (
       <div className="App">
         <h1>Is Die Hard a Christmas Movie?</h1>
+        <p>Hint: the answer is yes.</p>
         <div className="poll">
           <button onClick={() => handleVote('Yes')}>Yes</button>
           <button onClick={() => handleVote('No')}>No</button>
