@@ -11,8 +11,15 @@ function App() {
     saveVote({ vote });
   };
 
+  // Add mouse tracking
+  const handleMouseMove = (e: React.MouseEvent) => {
+    document.documentElement.style.setProperty('--x', `${e.clientX}`);
+    document.documentElement.style.setProperty('--y', `${e.clientY}`);
+  };
+
   return (
-      <div className="App">
+      <div className="App" onMouseMove={handleMouseMove}>
+        <div className="reindeer-delayed" aria-hidden="true">🦌</div>
         <h1>Is Die Hard a Christmas Movie?</h1>
         <p>Hint: the answer is yes.</p>
         <div className="poll">

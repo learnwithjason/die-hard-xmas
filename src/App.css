@@ -40,3 +40,215 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a472a 0%, #0d1f2d 100%);
+  background-image: 
+    linear-gradient(135deg, #1a472a 0%, #0d1f2d 100%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.1) 0, rgba(255,255,255,.1) 10px, transparent 10px, transparent 20px);
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.2rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+  to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 0, 0, 0.3); }
+}
+
+p {
+  font-size: 1.2rem;
+  color: #aaf0d1;
+  margin-bottom: 2rem;
+}
+
+.poll {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.poll button {
+  padding: 1rem 3.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.poll button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.poll button:hover:after {
+  opacity: 1;
+}
+
+.poll button:first-child {
+  background: #4CAF50;
+  color: white;
+}
+
+.poll button:last-child {
+  background: #f44336;
+  color: white;
+}
+
+.poll button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Add Santa cursor */
+.poll button::before {
+  content: "🎅";
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1000;
+}
+
+.poll button:hover::before {
+  opacity: 1;
+  animation: followCursor 0.01s infinite;
+}
+
+@keyframes followCursor {
+  from {
+    transform: translate(calc(var(--x, 0) * 1px - 12px), calc(var(--y, 0) * 1px - 12px));
+  }
+  to {
+    transform: translate(calc(var(--x, 0) * 1px - 12px), calc(var(--y, 0) * 1px - 12px));
+  }
+}
+
+.results {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bar-container {
+  margin: 1rem 0;
+}
+
+.bar-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.bar {
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.bar:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.1) 100%);
+  animation: shine 2s linear infinite;
+}
+
+/* Add snowflake decoration */
+.App::before {
+  content: "🦌";
+  position: fixed;
+  top: 40px;
+  left: -50px;
+  font-size: 3rem;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
+  opacity: 0.9;
+  animation: flyAcross 15s linear infinite;
+  z-index: 100;
+}
+
+.App::after {
+  content: "❄";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(-50px) translateY(0);
+  }
+  20% {
+    transform: translateX(20vw) translateY(20px);
+  }
+  40% {
+    transform: translateX(40vw) translateY(-20px);
+  }
+  60% {
+    transform: translateX(60vw) translateY(30px);
+  }
+  80% {
+    transform: translateX(80vw) translateY(-10px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 50px)) translateY(0);
+  }
+}
+
+/* Add additional reindeer with delay */
+.App .reindeer-delayed {
+  content: "🦌";
+  position: fixed;
+  top: 80px;
+  left: -50px;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
+  opacity: 0.7;
+  animation: flyAcross 15s linear infinite;
+  animation-delay: 7.5s;
+  z-index: 100;
+}
