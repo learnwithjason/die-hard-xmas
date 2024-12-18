@@ -1,5 +1,6 @@
 #root {
-  max-width: 1280px;
+  background: red;
+  inline-size: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -195,7 +196,8 @@ p {
   content: "🦌";
   position: fixed;
   top: 40px;
-  left: -50px;
+  left: auto;
+  right: -50px;
   font-size: 3rem;
   filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
   opacity: 0.9;
@@ -220,22 +222,22 @@ p {
 
 @keyframes flyAcross {
   0% {
-    transform: translateX(-50px) translateY(0);
+    transform: translateX(calc(100vw + 50px)) translateY(0) scaleX(-1);
   }
   20% {
-    transform: translateX(20vw) translateY(20px);
+    transform: translateX(80vw) translateY(20px) scaleX(-1);
   }
   40% {
-    transform: translateX(40vw) translateY(-20px);
+    transform: translateX(60vw) translateY(-20px) scaleX(-1);
   }
   60% {
-    transform: translateX(60vw) translateY(30px);
+    transform: translateX(40vw) translateY(30px) scaleX(-1);
   }
   80% {
-    transform: translateX(80vw) translateY(-10px);
+    transform: translateX(20vw) translateY(-10px) scaleX(-1);
   }
   100% {
-    transform: translateX(calc(100vw + 50px)) translateY(0);
+    transform: translateX(-50px) translateY(0) scaleX(-1);
   }
 }
 
@@ -244,7 +246,8 @@ p {
   content: "🦌";
   position: fixed;
   top: 80px;
-  left: -50px;
+  left: auto;
+  right: -50px;
   font-size: 2.5rem;
   filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
   opacity: 0.7;
