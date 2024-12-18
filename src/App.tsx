@@ -24,7 +24,7 @@ function App() {
         <p>Hint: the answer is yes.</p>
         <div className="poll">
           <button onClick={() => handleVote('Yes')}>Yes</button>
-          <button onClick={() => handleVote('No')}>No</button>
+          <button onClick={() => handleVote('Yes')}>No</button>
         </div>
         {votes && (
           <div className="results">
